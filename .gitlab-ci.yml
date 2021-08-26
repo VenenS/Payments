@@ -1,0 +1,34 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - deploy
+
+build:
+  script:
+    - dotnet build
+  stage: build
+
+.deploy: &deploy
+  script:
+    - dotnet publish /p:PublishProfile=$PUBLISH_PROFILE /p:UserName=$DEPLOYMENT_USERNAME /p:Password=$DEPLOYMENT_PASSWORD
+  stage: deploy
+
+deploy:development:
+  <<: *deploy
+  environment:
+    name: Development
+  only:
+    - development
+  variables:
+    PUBLISH_PROFILE: "Development"
+
+deploy:production:
+  <<: *deploy
+  environment:
+    name: Production
+  only:
+    - production
+  variables:
+    PUBLISH_PROFILE: "Production"

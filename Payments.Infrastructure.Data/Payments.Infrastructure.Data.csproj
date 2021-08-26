@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201201064718_AddAllowedAddressesListTable.cs" />
+    <Compile Remove="Migrations\20201201064718_AddAllowedAddressesListTable.Designer.cs" />
+    <Compile Remove="Migrations\20201216062456_AddColumnNotificationStatusInTablePayment.cs" />
+    <Compile Remove="Migrations\20201216062456_AddColumnNotificationStatusInTablePayment.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+    <PackageReference Include="Serilog.Sinks.PostgreSQL" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Payments.Application\Payments.Application.csproj" />
+  </ItemGroup>
+
+</Project>

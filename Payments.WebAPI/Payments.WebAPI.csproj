@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>63e66ac3-5eae-40a5-a7bf-67a5d8343f42</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="logs.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Coravel" Version="4.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.PostgreSQL" Version="2.1.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Payments.Application\Payments.Application.csproj" />
+    <ProjectReference Include="..\Payments.Infrastructure.Data\Payments.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Payments.Infrastructure.PaymentSystem\Payments.Infrastructure.PaymentSystem.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+</Project>
